@@ -1,8 +1,10 @@
 import requests
 import json
+import os
 
 # Replace the webhook URL with your own webhook URL
-WEBHOOK_URL = "https://discord.com/api/webhooks/1088398861854310480/xzi0_PpEjMFMG7M9XtuW2G5iXCxn_sPr7eqQSRTTRsk5-E1ry0vp38-PtAD4UJgnhG-f"
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")
+
 
 def send_message(message_text):
     # Create the message payload
