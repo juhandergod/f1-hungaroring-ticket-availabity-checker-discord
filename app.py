@@ -12,16 +12,25 @@ def hello():
     return "F1 ticket bot"
 
 
+# @crython.job(second=0)
+# def ticket_checker_job():
+#     tickets = scraping.get_available_weekend_tickets()
+#     if len(tickets) != 0:
+#         ticket_names = scraping.get_tickets_name(tickets)
+#         for ticket_name in ticket_names:
+#             discord.send_message("Ticket available: " + ticket_name + " - " + scraping.url)
+#             sleep(1)
+#     else:
+#         print("No ticket available.")
+
 @crython.job(second=0)
-def ticket_checker_job():
-    tickets = scraping.get_available_weekend_tickets()
-    if len(tickets) != 0:
-        ticket_names = scraping.get_tickets_name(tickets)
-        for ticket_name in ticket_names:
-            discord.send_message("Ticket available: " + ticket_name + " - " + scraping.url)
-            sleep(1)
-    else:
-        print("No ticket available.")
+def sonos_availability():
+    from sonos_service import check_availability, products
+
+    for product in products:
+        check_availability(product)
+        sleep(1)
+
 
 
 if __name__ == "__main__":
