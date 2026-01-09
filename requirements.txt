@@ -5,3 +5,4 @@ crython~=0.2.0
 Flask~=2.2.3
 six~=1.16.0
 setuptools >= 72.1.0
+urllib3>=2.6.3 # not directly required, pinned by Snyk to avoid a vulnerability
